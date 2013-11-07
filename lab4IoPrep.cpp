@@ -40,24 +40,8 @@ void Lab4IoPrep::readInputFile(ifstream& inputFile){	//might want to make this s
 			inputFile.get();
 			continue;
 		}
-		Movie *nextMovie = (movieMaker.createMovie(genre));
-		cout << "GENRE: " << nextMovie -> genre() << endl;
-		//TODO: use a factory here instead to fix class/genre problem
-		
-		//Movie nextMovie = emptyMovie(genre);
-
-		//cout << "GENRE: " << emptyMovie(genre).genre() << endl;
-		//M.fillMovieData(inputFile1); TODO
-
-		for(int i = 0; i < dataTypeCount-1; i++){	//TODO: error checking
-			string currentData;
-			getline(inputFile, currentData, ','); //TODO: fix extra space
-			cout << STRING_ARRAY[i] << ":" << currentData << endl;
-		}
-		string currentData;
-		getline(inputFile, currentData); //TODO: fix extra space
-		cout << STRING_ARRAY[dataTypeCount-1] << ":" << currentData << endl;
-		cout << endl;
+		Movie *nextMovie = (movieMaker.createMovie(genre,inputFile));
+		cout << nextMovie -> movieDataString() << endl;
 	}
 }
 

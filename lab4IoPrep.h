@@ -1,14 +1,12 @@
 #ifndef LAB4IOPREP_H
 #define LAB4IOPREP_H
-#include <iostream>
-#include <fstream>
-#include <typeinfo>
+
 //#include "movie.h"
 #include "movieFactory.cpp"
 using namespace std;
 
 #define INPUT_DELIMITER ", "
-const string STRING_ARRAY [] = {"director","title","date","lead actor"};	//this array deals with strings, but the hashtable must  deal with objects.
+	//this array deals with strings, but the hashtable must  deal with objects.
 const string VALID_GENRES[] = {"C","D","F"};	//TODO: structure this differently
 //const ClassicMovie emptyClassic;
 //const DramaMovie emptyDrama;

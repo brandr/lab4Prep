@@ -4,15 +4,17 @@
 #include <string>
 #include <iostream>
 using namespace std;
-
+const string STRING_ARRAY [] = {"director","title","date","lead actor"};
 class Movie {
 public:
 	Movie();
 	virtual ~Movie();
 	virtual string genre() = 0;
+	string movieDataString();
 	virtual Movie* create() = 0;
-//private:
-//	map<string,string> movieData;
+	void addData(string,string);
+private:
+	map<string,string> movieData;
 };
 
 class ClassicMovie: public Movie {
