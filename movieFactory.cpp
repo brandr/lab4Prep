@@ -22,20 +22,24 @@ public:
 
     Movie* createMovie(string genre, ifstream& inputFile) {	//NOTE: should this take in more data and create the entire movie?
     	//TODO: replace this method with one that uses hastbale.
-    	const int dataTypeCount = 4;
+    	
     	Movie* createdMovie = NULL;
-    	if(genre == "C") createdMovie = movieTemplates[0];
-		if(genre == "D") createdMovie = movieTemplates[1];
-		if(genre == "F") createdMovie = movieTemplates[2];
+    	if(genre == "C") createdMovie = movieTemplates[0] -> create();
+		if(genre == "D") createdMovie = movieTemplates[1] -> create();
+		if(genre == "F") createdMovie = movieTemplates[2] -> create();
 		
+        const string* dataTypeNames = createdMovie -> dataTypeNames();
+        int dataTypeCount = createdMovie -> dataTypeCount();
 		for(int i = 0; i < dataTypeCount-1; i++){	//TODO: error checking
 			string currentData;
-			getline(inputFile, currentData, ','); //TODO: fix extra space
-			createdMovie -> addData(STRING_ARRAY[i],currentData);
+			getline(inputFile, currentData, ',');
+            createdMovie -> addData(dataTypeNames[i],currentData);
 		}
+
 		string lastData;
-		getline(inputFile, lastData); //TODO: fix extra space
-		createdMovie -> addData(STRING_ARRAY[dataTypeCount-1],lastData);
+		getline(inputFile, lastData);
+		createdMovie -> addData(dataTypeNames[dataTypeCount-1],lastData);
+
 		return createdMovie;
     }
 };
