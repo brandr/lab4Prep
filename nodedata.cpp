@@ -17,24 +17,25 @@ NodeData& NodeData::operator=(const NodeData& rhs) {
    return *this;
 }
 
+
 //------------------------- operator==,!= ------------------------------------
 bool NodeData::operator==(const NodeData& rhs) const {
-   return data == rhs.data;
+   return *data == *(rhs.data);
 }
 
 bool NodeData::operator!=(const NodeData& rhs) const {
-   return data != rhs.data;
+   return *data != *(rhs.data);
 }
 
 //------------------------ operator<,>,<=,>= ---------------------------------
 bool NodeData::operator<(const NodeData& rhs) const {
-   return data < rhs.data;
+   return *data < *(rhs.data);
 }
 
 bool NodeData::operator>(const NodeData& rhs) const {
-   return data > rhs.data;
+   return *data > *(rhs.data);
 }
-
+//TODO: as operators get more complex, add *s to propely access movies.
 bool NodeData::operator<=(const NodeData& rhs) const {
    return data <= rhs.data;
 }

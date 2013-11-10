@@ -14,11 +14,12 @@ void Lab4IoPrep::readInputFile(ifstream& inputFile){	//might want to make this s
 			getline(inputFile,temp);
 			continue;
 		}
+		//TODO: do not put different genres of movies in the same bintree.
 		Movie *nextMovie = (movieMaker.createMovie(genre,inputFile));
-		movieTree.insert(new NodeData(nextMovie));
-		//cout << *nextMovie << endl;
+		movieTree.insert(new NodeData(nextMovie));	
 	}
-	cout << movieTree << endl;
+	cout << movieTree;
+
 }
 
 bool Lab4IoPrep::validGenre(string genre){

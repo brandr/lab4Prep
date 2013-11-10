@@ -210,21 +210,26 @@ bool BinTree::isNotEqual(const Node &node1, const Node &node2)const{
 // Recursively inserts the node in an inorder traversal by calling the 
 // insert helper method.
 bool BinTree::insert(NodeData *inserted){
+	//cout << *inserted << endl;
 	if(inserted == NULL){ //cannot insert null data
 		return false;
 	}
 	if(root == NULL){ //if the bintree is empty, insert the node at the root
 		root = new Node();
 		root -> data = inserted;
+		//cout << "INSERTED AT ROOT" << endl;
 		return true;   
 	}
 	if(*inserted == *(root -> data)){ //check if node is already in the tree
+		//cout << "DUPLICATE DETECTED" << endl;
 		return false;
 	}
 	if(*inserted < *(root->data)){            // go down the left side
+		//cout << "INSERT GOING LEFT" << endl;
 		return insert(inserted, root, root -> left,false);
 	}
 	else{                                     // go down the right side
+		//cout << "INSERT GOING RIGHT" << endl;
 		return insert(inserted, root, root -> right, true);
 	}
 }

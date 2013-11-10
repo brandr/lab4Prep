@@ -15,6 +15,7 @@ public:
 	virtual ~Movie();
 	virtual string genre() const = 0;
 	virtual const string* dataTypeNames() const = 0;
+	virtual const string* sortedByNames() const = 0;
 	virtual int dataTypeCount() const = 0;
 	string movieDataString() const;
 	virtual Movie* create() = 0;
@@ -30,30 +31,36 @@ private:
 	map<string,string> movieData;
 };
 
-const string CLASSIC_MOVIE_DATA_TYPES [] = {"director","title","lead actor","date"};
+const string CLASSIC_MOVIE_DATA_TYPES [] = {"director","title","famous actor","date"};
+const string CLASSIC_SORTED_BY [] = {"date","famous actor"};
 class ClassicMovie: public Movie {
 public:
 	virtual ClassicMovie* create(){return new ClassicMovie();}
 	virtual string genre() const;
 	virtual const string* dataTypeNames() const;
+	virtual const string* sortedByNames() const;
 	virtual int dataTypeCount() const;
 };
 
 const string DRAMA_MOVIE_DATA_TYPES [] = {"director","title","date"};
+const string DRAMA_SORTED_BY [] = {"director","title"};
 class DramaMovie: public Movie {
 public:
 	virtual DramaMovie* create(){return new DramaMovie();}
 	virtual string genre() const;
 	virtual const string* dataTypeNames() const;
+	virtual const string* sortedByNames() const;
 	virtual int dataTypeCount() const;
 };
 
 const string COMEDY_MOVIE_DATA_TYPES [] = {"director","title","date"};
+const string COMEDY_SORTED_BY [] = {"title","date"};
 class ComedyMovie: public Movie {
 public:
 	virtual ComedyMovie* create(){return new ComedyMovie();}
 	virtual string genre() const;
 	virtual const string* dataTypeNames() const;
+	virtual const string* sortedByNames() const;
 	virtual int dataTypeCount() const;
 };
 #endif
