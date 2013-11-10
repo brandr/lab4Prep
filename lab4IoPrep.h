@@ -4,6 +4,7 @@
 //#include "movie.h"
 #include "moviefactory.cpp"
 #include "bintree.h"
+#include "moviecollection.h"
 using namespace std;
 
 #define INPUT_DELIMITER ", "

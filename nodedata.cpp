@@ -61,3 +61,7 @@ ostream& operator<<(ostream& output, const NodeData& nd) {
    return output;
 }
 
+string NodeData::genre(){
+   if(data == NULL) return "";
+   return data -> genre();
+}

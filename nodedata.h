@@ -29,7 +29,7 @@ public:
    bool operator>(const NodeData &) const;
    bool operator<=(const NodeData &) const;
    bool operator>=(const NodeData &) const;
-
+   string genre();
 private:
    const Movie* data;          
 };

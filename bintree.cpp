@@ -210,26 +210,21 @@ bool BinTree::isNotEqual(const Node &node1, const Node &node2)const{
 // Recursively inserts the node in an inorder traversal by calling the 
 // insert helper method.
 bool BinTree::insert(NodeData *inserted){
-	//cout << *inserted << endl;
 	if(inserted == NULL){ //cannot insert null data
 		return false;
 	}
 	if(root == NULL){ //if the bintree is empty, insert the node at the root
 		root = new Node();
 		root -> data = inserted;
-		//cout << "INSERTED AT ROOT" << endl;
 		return true;   
 	}
 	if(*inserted == *(root -> data)){ //check if node is already in the tree
-		//cout << "DUPLICATE DETECTED" << endl;
 		return false;
 	}
 	if(*inserted < *(root->data)){            // go down the left side
-		//cout << "INSERT GOING LEFT" << endl;
 		return insert(inserted, root, root -> left,false);
 	}
 	else{                                     // go down the right side
-		//cout << "INSERT GOING RIGHT" << endl;
 		return insert(inserted, root, root -> right, true);
 	}
 }
@@ -319,16 +314,17 @@ int BinTree::maximum(const int num1, const int num2){
 // --------------------------------------------------------------------------
 // Prints a Tree to the standard output in alphabetical order
 ostream& operator<<(ostream& output, const BinTree& tree) {
-	BinTree temp(tree);
-	NodeData* array[100];  //assuming there won't be more than 100 nodes
-	temp.bstreeToArray(array); //temp copy tree cuz bstreeToArray empties
-	if(array[0] != NULL){
-		output << *array[0] << endl;
+	if(!tree.isEmpty()){
+		BinTree temp(tree);
+		NodeData* array[100];  //assuming there won't be more than 100 nodes
+		temp.bstreeToArray(array); //temp copy tree cuz bstreeToArray empties
+		if(array[0] != NULL){
+			output << *array[0] << endl;
+		}	
+		for(int i = 1; i < 100 && array[i] != NULL; i++){
+			output << *array[i] << endl;
+		}
 	}
-	for(int i = 1; i < 100 && array[i] != NULL; i++){
-		output << *array[i] << endl;
-	}
-	output << endl;
 	return output;
 }
 
@@ -516,4 +512,9 @@ void BinTree::sideways(Node* current, int level) const {
 	    cout << *current -> data << endl;        // display information of object
 	    sideways(current -> left, level);
 	}
+}
+
+string BinTree::genre(){
+	if(root == NULL) return "";
+	return (*root -> data).genre();
 }

@@ -21,6 +21,7 @@ class BinTree {
 	friend ostream & operator<<(ostream &, const BinTree &);
 
 public:
+	//TODO: consider removing methods we aren't using
 	BinTree(); 						// BinTree constructor 
 	BinTree(const BinTree &); 		// BinTree copy constructor	
 	~BinTree(); 					// BinTree destructor, calls makeEmpty 
@@ -35,6 +36,7 @@ public:
 	int getDepth(const NodeData &) const; // gets the depth of the tree
 	bool retrieve(const NodeData &, NodeData*&) const; // retrieves a node
 	void displaySideways() const; // provided, displays the tree sideways
+	string genre();
  
 private:
 	Node* root;						// root node of the binary tree 

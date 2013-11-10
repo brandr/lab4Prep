@@ -1,10 +1,11 @@
 #include "lab4IoPrep.h"
 	//will probably end up making an object array in Movie
 Lab4IoPrep::Lab4IoPrep(){}
-
-void Lab4IoPrep::readInputFile(ifstream& inputFile){	//might want to make this static and/or add a "Movie" arg (or else return a movie)
+//TODO: make a linked list set of bintrees
+void Lab4IoPrep::readInputFile(ifstream& inputFile){	//might want to make this return movies
 	MovieFactory movieMaker;
-	BinTree movieTree;
+	MovieCollection allMovies;//TODO
+	//BinTree movieTree;
 	for(;;){
 		if(inputFile.eof()) break;
 		string genre = "";		//TODO: break this up into its own methods
@@ -16,10 +17,9 @@ void Lab4IoPrep::readInputFile(ifstream& inputFile){	//might want to make this s
 		}
 		//TODO: do not put different genres of movies in the same bintree.
 		Movie *nextMovie = (movieMaker.createMovie(genre,inputFile));
-		movieTree.insert(new NodeData(nextMovie));	
+		allMovies.insert(nextMovie);	
 	}
-	cout << movieTree;
-
+	cout << allMovies;
 }
 
 bool Lab4IoPrep::validGenre(string genre){

@@ -10,7 +10,11 @@ Movie::~Movie(){}
 string Movie::genre() const{
 	return "none";
 }
-
+/*
+int Movie::dataTypeCount() const{
+	return sizeof(dataTypeNames())/sizeof(*dataTypeNames());
+}
+*/
 string Movie::movieDataString() const{
 	string dataString = "";
 	const string* tempTypeNames = dataTypeNames();

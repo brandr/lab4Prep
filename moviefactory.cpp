@@ -32,7 +32,7 @@ public:
 		
         const string* dataTypeNames = createdMovie -> dataTypeNames();
         int dataTypeCount = createdMovie -> dataTypeCount();
-        
+  
 		for(int i = 0; i < dataTypeCount-1; i++){	//TODO: error checking
 			string currentData;
 			getline(inputFile, currentData, ',');
