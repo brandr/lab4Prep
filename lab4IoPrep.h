@@ -2,7 +2,8 @@
 #define LAB4IOPREP_H
 
 //#include "movie.h"
-#include "movieFactory.cpp"
+#include "moviefactory.cpp"
+#include "bintree.h"
 using namespace std;
 
 #define INPUT_DELIMITER ", "
