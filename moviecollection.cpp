@@ -30,7 +30,6 @@ void MovieCollection::insert(Movie *inserted){	//consider making this a bool rat
 	GenreNode* current = root;
 	string insertedGenre = inserted -> genre();
 	while(current -> next != NULL && current -> genre() != insertedGenre){
-	//	cout << *inserted << endl;
 		current = current -> next;
 	}
 	if(current -> genre() != insertedGenre){
@@ -38,7 +37,6 @@ void MovieCollection::insert(Movie *inserted){	//consider making this a bool rat
 		current = current -> next;
 	}
 	(current -> movieData) -> insert(new NodeData(inserted));
-	//cout << "GENRE: " << current -> genre() << endl;
 }
 
 bool MovieCollection::isEmpty() const{
@@ -62,11 +60,18 @@ ostream& operator<<(ostream& output, const MovieCollection& movies) {
 
 void MovieCollection::collectionToArray(BinTree* array[]) const{
 	if(isEmpty()) return;
+	initializeArrayHelper(array);
 	GenreNode* current = root;
 	int index = 0;
 	while(current != NULL){
 		array[index] = current -> movieData;
 		current = current -> next;
 		index++;
+	}
+}
+
+void MovieCollection::initializeArrayHelper(BinTree* array[]) const{
+	for(int i = 0; i < 100; i++){
+		array[i] = NULL;
 	}
 }

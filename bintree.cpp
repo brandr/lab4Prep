@@ -247,7 +247,7 @@ bool BinTree::insert(NodeData *ptr, Node *cNode, Node *nNode, bool right){
 			return true;
 		}
 	}
-	if(*ptr == *(nNode->data)){   //don't insert redundant data into tree
+	if(*ptr == *(nNode->data)){   //TODO: increase the "quantity"
 		return false;
 	}
 	if(*ptr < *(nNode->data)){ 		// go down the left side

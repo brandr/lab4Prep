@@ -19,7 +19,8 @@ void Lab4IoPrep::readInputFile(ifstream& inputFile){	//might want to make this r
 		Movie *nextMovie = (movieMaker.createMovie(genre,inputFile));
 		allMovies.insert(nextMovie);	
 	}
-	cout << allMovies;
+	cout << allMovies << endl;
+
 }
 
 bool Lab4IoPrep::validGenre(string genre){
