@@ -7,6 +7,20 @@ void Lab4IoPrep::readInputFile(ifstream& inputFile){	//might want to make this r
 	MovieCollection allMovies;//TODO
 	//BinTree movieTree;
 	for(;;){
+		/*
+		infile >> movieCode                 // reads the 'C' code
+
+   		infile.get();                       // get (and ignore) blank before director
+   		getline(infile, director, ',');     // input director
+   
+   		infile.get();                       // get (and ignore) blank before title
+   		getline(infile, title, ',');        // input title
+   
+   		infile.get();                       // get (and ignore) blank before actor
+   		infile >> actorFirst >> actorLast;  // input star's name
+   		infile >> month >> year;            // input month and year
+   		*/
+		
 		if(inputFile.eof()) break;
 		string genre = "";		//TODO: break this up into its own methods
 		inputFile >> genre;		
@@ -17,7 +31,8 @@ void Lab4IoPrep::readInputFile(ifstream& inputFile){	//might want to make this r
 		}
 		//TODO: do not put different genres of movies in the same bintree.
 		Movie *nextMovie = (movieMaker.createMovie(genre,inputFile));
-		allMovies.insert(nextMovie);	
+		allMovies.insert(nextMovie);
+		
 	}
 	cout << allMovies << endl;
 
