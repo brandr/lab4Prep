@@ -49,7 +49,7 @@ ostream& operator<<(ostream& output, const Movie& m) {
 //------------------------- operator==,!= ------------------------------------
 bool Movie::operator==(const Movie& otherMovie) const {
 	if(genre() != otherMovie.genre()) return false;
-	const string* tempTypeNames = dataTypeNames();
+	const string* tempTypeNames = sortedByNames();
 	const int tempTypeCount = dataTypeCount();
     for(int i = 0; i < tempTypeCount; i++){
     	if(getData(tempTypeNames[i]) != 
@@ -92,6 +92,7 @@ bool Movie::operator<=(const Movie& otherMovie) const {
 bool Movie::operator>=(const Movie& otherMovie) const {
    return (*this > otherMovie) || (*this == otherMovie);
 }
+
 
 //classic movie
 string ClassicMovie::genre() const{

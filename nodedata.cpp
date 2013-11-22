@@ -1,13 +1,22 @@
 #include "nodedata.h"
 
 //------------------- constructors/destructor  -------------------------------
-NodeData::NodeData() { data = NULL; }                         // default
+NodeData::NodeData() { 
+   data = NULL; 
+   count = DEFAULT_MOVIE_QUANTITY;
+}                         // default
 
 NodeData::~NodeData() {}            // needed so strings are deleted properly
 
-NodeData::NodeData(const NodeData& nd) { data = nd.data; }  // copy
+NodeData::NodeData(const NodeData& nd) { // copy
+   count = nd.count;
+   data = nd.data; 
+}  
 
-NodeData::NodeData(const Movie* m) { data = m; }    // cast string to NodeData
+NodeData::NodeData(const Movie* m) { 
+   data = m;
+   count = DEFAULT_MOVIE_QUANTITY;
+}    // cast string to NodeData
 
 //------------------------- operator= ----------------------------------------
 NodeData& NodeData::operator=(const NodeData& rhs) {
@@ -57,6 +66,7 @@ bool NodeData::setData(istream& infile) {
 
 //-------------------------- operator<< --------------------------------------
 ostream& operator<<(ostream& output, const NodeData& nd) {
+   output << "in stock: " << nd.count << endl;
    output << *(nd.data);   //TODO: change how this is done.
    return output;
 }
@@ -64,4 +74,8 @@ ostream& operator<<(ostream& output, const NodeData& nd) {
 string NodeData::genre(){
    if(data == NULL) return "";
    return data -> genre();
+}
+
+void NodeData::incrementCount(int added){
+   count += added;
 }

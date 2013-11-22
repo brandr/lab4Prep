@@ -1,5 +1,6 @@
 #ifndef MOVIE_H
 #define MOVIE_H
+#define DEFAULT_MOVIE_QUANTITY 10;
 #include <map>
 #include <string>
 #include <iostream>

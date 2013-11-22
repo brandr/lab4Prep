@@ -30,8 +30,10 @@ public:
    bool operator<=(const NodeData &) const;
    bool operator>=(const NodeData &) const;
    string genre();
+   void incrementCount(int);
 private:
    const Movie* data;          
+   int count;
 };
 
 #endif

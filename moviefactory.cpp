@@ -1,5 +1,3 @@
-//#ifndef MOVIEFACTORY_CPP
-//#define MOVIEFACTORY_CPP
 #include "movie.h"
 #include <iostream>
 #include <fstream>
@@ -23,7 +21,7 @@ public:
     }
 
     Movie* createMovie(string genre, ifstream& inputFile) {	//NOTE: should this take in more data and create the entire movie?
-    	//TODO: replace this method with one that uses hastbale.
+    	//TODO: replace this method with one that uses hashtable.
     	
     	Movie* createdMovie = NULL;
     	if(genre == "C") createdMovie = movieTemplates[0] -> create();    //TODO: isolate this bit into its own method.
@@ -60,8 +58,6 @@ public:
             string currentData = m.getData(dataTypeNames[i]); 
             createdMovie -> addData(dataTypeNames[i],currentData);
         }
-
         return createdMovie;
     }
 };
-//#endif
